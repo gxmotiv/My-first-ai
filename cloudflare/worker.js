@@ -13,7 +13,7 @@ const ALLOWED_ORIGINS = new Set([
   "https://1.gagandeep-hwr.workers.dev"
 ]);
 const MODEL = "@cf/meta/llama-3.1-8b-instruct-fp8";
-const MAX_MESSAGE_CHARS = 3000;
+const MAX_MESSAGE_CHARS = 3500;
 const MAX_BODY_BYTES = 16000;
 const MAX_OUTPUT_TOKENS = 400;
 
