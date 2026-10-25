@@ -62,7 +62,7 @@
     <button class="mode" data-mode="research">⌕ Research planner</button>
     <button class="mode" data-mode="lab">⌘ Model lab</button>
   </nav>
-  <p id="modeInfo" class="modeinfo">A local conversation demo. It does not reason like a connected language model.</p>
+  <p id="modeInfo" class="modeinfo">Assistant mode sends messages to the configured Cloudflare AI endpoint. Research Planner does not perform live web search.</p>
   <section id="suggestions" class="suggestions" aria-label="Suggested prompts"></section>
   <section id="chat" class="chat" aria-live="polite" aria-label="Conversation"></section>
   <footer class="composer-wrap">
@@ -70,9 +70,9 @@
       <button id="voiceInput" class="voicebtn" type="button" title="Dictate a message" aria-label="Dictate a message">🎙</button><textarea id="input" rows="1" maxlength="3000" placeholder="Write an idea or ask a question…" aria-label="Message" required></textarea>
       <button id="send" class="send" type="submit">Send ↗</button>
     </form>
-    <div class="composer-foot"><span id="modeHint">Demo replies · No network request</span><span>Enter to send · Shift+Enter for a new line</span></div>
+    <div class="composer-foot"><span id="modeHint">Cloudflare AI · Network request</span><span>Enter to send · Shift+Enter for a new line</span></div>
   </footer>
-  <div class="footerline">MY FIRST AI · Built with HTML, CSS & JavaScript · Zero paid APIs</div>
+  <div class="footerline">MY FIRST AI · Zero paid APIs · Voice dictation may use your browser’s speech service.</div>
 </div>
 </main>
 </div>
