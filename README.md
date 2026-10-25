@@ -25,8 +25,10 @@ A zero-budget, mobile-first personal AI assistant project. The current web UI is
 - **Live web research is not implemented.** Research Planner creates a checklist only; it does not search the web, retrieve sources, or verify claims.
 - Model Lab is a planning/learning mode; it does not train or run a model itself.
 - Memory is browser-local prompt context, not persistent model memory. It may be unavailable in private browsing, after browser data is cleared, or on another device.
-- The ChatGPT-side assistant can edit this GitHub repo but does not have direct access to deploy changes in the Cloudflare dashboard. The deployed Cloudflare app/Worker and the starter file under `cloudflare/worker.js` may differ.
-- The configured endpoint is expected to return JSON with an `answer` field (or a supported common response format). The frontend displays connection errors rather than substituting a fake AI answer.
+- GitHub Pages uses `POST https://1.gagandeep-hwr.workers.dev/api/chat` with a `messages` array. The frontend accepts either a JSON `{ "answer": "..." }` response or the Cloudflare template's Server-Sent Events stream.
+- **Important deployment step:** GitHub commits do not update the active Cloudflare Worker unless Cloudflare is configured to deploy from this repo. The `cloudflare/worker.js` file now includes the expected `/api/chat` endpoint and CORS support for `https://gxmotiv.github.io`; deploy that file to the Worker with the `AI` binding enabled for the GitHub Pages version to work.
+- The ChatGPT-side assistant can edit this GitHub repo but cannot publish code into the Cloudflare dashboard from here. The running Worker may still contain the original template code until it is redeployed. If the browser says `Failed to fetch`, verify Worker CORS/preflight support and that `/api/chat` is deployed.
+- The frontend displays connection errors rather than substituting a fake AI answer.
 - CORS is not authentication. A public Worker endpoint can potentially be called outside this web page; keep an eye on usage and do not place secrets in client code.
 
 ## Cloudflare usage and cost
